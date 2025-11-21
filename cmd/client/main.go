@@ -5,7 +5,7 @@ import (
 	"context"
 	"fmt"
 	"log"
-	hellopb "mygrpc/pkg/grpc"
+	hellopb "mygrpc/pkg/grpc/api"
 	"os"
 	"time"
 

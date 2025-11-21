@@ -9,7 +9,7 @@ import (
 	"os/signal"
 	"time"
 
-	hellopb "mygrpc/pkg/grpc"
+	hellopb "mygrpc/pkg/grpc/api"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
