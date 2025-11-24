@@ -53,3 +53,16 @@ func (s *myServer) Hello(ctx context.Context, req *hellopb.HelloRequest) (*hello
 		CreateTime: timestamppb.New(time.Now()),
 	}, nil
 }
+
+func (s *myServer) HelloServerStream(req *hellopb.HelloRequest, stream hellopb.GreetingService_HelloServerStreamServer) error {
+	resCount := 5
+	for i := range resCount {
+		if err := stream.Send(&hellopb.HelloResponse{
+			Message: fmt.Sprintf("[%d] Hello, %s!", i, req.GetName()),
+		}); err != nil {
+			return err
+		}
+		time.Sleep(1 * time.Second)
+	}
+	return nil
+}
